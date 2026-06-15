@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Written Exam · Unit 7 · Be good!</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1E293B;--muted:#64748B;--border:#CBD5E1;--bg:#F0FDF4;--card:#fff;
+--blue:#2563EB;--blue-l:#DBEAFE;--blue-d:#1E40AF;
+--green:#059669;--green-l:#D1FAE5;--green-d:#065F46;
+--purple:#7C3AED;--purple-l:#EDE9FE;--purple-d:#5B21B6;
+--amber:#D97706;--amber-l:#FEF3C7;--amber-d:#92400E;
+--pink:#DB2777;--pink-l:#FCE7F3;--pink-d:#9D174D;
+--red:#DC2626;--red-l:#FEE2E2;
+--em:#16A34A;--em-l:#DCFCE7;--em-d:#14532D;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--ink);}
+.cover{background:linear-gradient(135deg,#052E16 0%,#14532D 55%,#16A34A 100%);padding:40px 28px 44px;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 40%,rgba(22,163,74,.4) 0%,transparent 55%);}
+.cover-inner{max-width:860px;margin:0 auto;position:relative;}
+.school-line{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:10px;}
+.school-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;}
+.exam-badge{background:#FCD34D;color:#92400E;font-size:11px;font-weight:900;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:20px;}
+.cover h1{font-family:'Fredoka One',cursive;font-size:clamp(28px,5vw,52px);color:#fff;line-height:1.05;margin-bottom:6px;}
+.cover h1 span{color:#86EFAC;}
+.cover-sub{color:rgba(255,255,255,.75);font-size:14px;font-weight:700;margin-bottom:22px;}
+.student-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.sfield{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:10px;padding:10px 16px;}
+.sfield label{display:block;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;}
+.sfield input{background:transparent;border:none;border-bottom:1.5px solid rgba(255,255,255,.35);width:100%;color:white;font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;outline:none;padding:2px 0;}
+.sfield input::placeholder{color:rgba(255,255,255,.35);}
+.score-total{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:10px 18px;text-align:center;}
+.score-total label{display:block;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:2px;}
+.score-val{font-family:'Fredoka One',cursive;font-size:32px;color:#86EFAC;line-height:1;}
+.score-total span{color:rgba(255,255,255,.5);font-size:14px;font-weight:700;}
+.instr-bar{background:white;border-bottom:2px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:0 2px 8px rgba(0,0,0,.05);position:sticky;top:0;z-index:40;}
+.instr-chip{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:var(--muted);}
+.instr-chip span{font-size:16px;}
+.prog-wrap{flex:1;min-width:140px;display:flex;align-items:center;gap:8px;}
+.prog-track{flex:1;height:7px;background:#E2E8F0;border-radius:4px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--em),#22C55E);border-radius:4px;transition:width .4s;}
+.prog-pts{font-size:13px;font-weight:900;color:var(--em);white-space:nowrap;}
+.page{max-width:860px;margin:0 auto;padding:28px 16px 60px;}
+.section-div{display:flex;align-items:center;gap:14px;margin:32px 0 18px;}
+.sec-num{font-family:'Fredoka One',cursive;font-size:36px;line-height:1;flex-shrink:0;}
+.sec-info h2{font-size:18px;font-weight:900;line-height:1.1;}
+.sec-info p{font-size:13px;color:var(--muted);font-weight:600;margin-top:2px;}
+.sec-pts{margin-left:auto;text-align:right;flex-shrink:0;}
+.sec-pts strong{display:block;font-family:'Fredoka One',cursive;font-size:22px;}
+.sec-pts span{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+.ex{background:var(--card);border-radius:16px;margin-bottom:20px;overflow:hidden;border:1.5px solid var(--border);box-shadow:0 2px 12px rgba(0,0,0,.05);}
+.ex-hd{display:flex;align-items:center;gap:10px;padding:13px 20px;border-bottom:1.5px solid var(--border);}
+.ex-letter{width:30px;height:30px;border-radius:8px;color:white;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ex-hd h3{font-size:14px;font-weight:800;flex:1;line-height:1.3;}
+.ex-pts-tag{font-size:11px;font-weight:800;padding:3px 10px;border-radius:20px;background:var(--bg);color:var(--muted);}
+.ex-body{padding:20px 22px;}
+.inst{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:16px;line-height:1.6;padding:10px 14px;background:var(--bg);border-radius:8px;border-left:3px solid #BBF7D0;}
+.read-passage{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:2px solid #86EFAC;border-radius:14px;padding:20px 22px;margin-bottom:20px;}
+.read-passage h4{font-family:'Fredoka One',cursive;font-size:20px;color:var(--em-d);margin-bottom:4px;}
+.read-loc{font-size:11px;font-weight:800;color:var(--em);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.read-passage p{font-size:14px;font-weight:600;color:var(--ink);line-height:1.9;}
+.read-passage p+p{margin-top:10px;}
+.hi{background:#FEF3C7;border-radius:3px;padding:1px 3px;}
+.fl{display:flex;align-items:center;flex-wrap:wrap;gap:5px;margin-bottom:13px;font-size:14px;font-weight:600;line-height:2.2;}
+.fn{width:24px;height:24px;background:var(--em);color:white;border-radius:50%;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.b{min-width:100px;border:none;border-bottom:2.5px solid var(--em);padding:2px 8px;background:var(--em-l);border-radius:6px 6px 0 0;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--em-d);outline:none;transition:all .15s;}
+.b:focus{border-color:var(--blue);background:var(--blue-l);color:var(--blue-d);}
+.b.ok{border-color:var(--green)!important;background:var(--green-l)!important;color:var(--green-d)!important;}
+.b.no{border-color:var(--red)!important;background:var(--red-l)!important;color:var(--red)!important;}
+.b.sm{min-width:70px;}.b.lg{min-width:145px;}.b.xl{min-width:185px;}
+.mc{margin-bottom:16px;padding:13px 16px;background:#F0FFF4;border-radius:11px;border:1.5px solid var(--border);}
+.mc-q{font-size:14px;font-weight:700;margin-bottom:10px;line-height:1.5;}
+.mc-opts{display:flex;flex-wrap:wrap;gap:7px;}
+.mc-opt{padding:7px 15px;border:2px solid var(--border);border-radius:10px;background:white;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;}
+.mc-opt:hover{border-color:var(--em);color:var(--em-d);background:var(--em-l);}
+.mc-opt.ok{border-color:var(--green);background:var(--green-l);color:var(--green-d);}
+.mc-opt.no{border-color:var(--red);background:var(--red-l);color:var(--red);}
+.mc-opt.rev{border-color:var(--green);background:var(--green-l);color:var(--green-d);opacity:.55;}
+.tf{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:9px;background:white;transition:all .2s;}
+.tf.ok{background:var(--green-l);border-color:var(--green);}
+.tf.no{background:var(--red-l);border-color:var(--red);}
+.tf-num{font-size:11px;font-weight:900;color:var(--muted);width:18px;flex-shrink:0;}
+.tf-q{flex:1;font-size:13px;font-weight:700;line-height:1.5;}
+.tf-btns{display:flex;gap:6px;flex-shrink:0;}
+.tf-b{padding:5px 12px;border-radius:8px;border:2px solid;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;cursor:pointer;background:white;transition:all .2s;}
+.tf-b.T{border-color:var(--green);color:var(--green);}
+.tf-b.T:hover,.tf-b.T.sel{background:var(--green);color:white;}
+.tf-b.F{border-color:var(--red);color:var(--red);}
+.tf-b.F:hover,.tf-b.F.sel{background:var(--red);color:white;}
+.tf-icon{font-size:16px;}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:6px;}
+.match-col{display:flex;flex-direction:column;gap:7px;}
+.mi{padding:9px 13px;border-radius:10px;border:2px solid var(--border);font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;background:white;text-align:center;}
+.mi:hover{transform:scale(1.02);}
+.mi.selL{border-color:var(--amber);background:var(--amber-l);color:var(--amber-d);}
+.mi.selR{border-color:var(--amber);background:var(--amber-l);color:var(--amber-d);}
+.mi.matched{border-color:var(--green);background:var(--green-l);color:var(--green-d);pointer-events:none;}
+.mi.wrong{border-color:var(--red);background:var(--red-l);color:var(--red);}
+.gram-box{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:2px solid #86EFAC;border-radius:12px;padding:14px 16px;margin-bottom:18px;font-size:13px;font-weight:700;color:var(--em-d);line-height:1.8;}
+.gram-box strong{font-size:15px;display:block;margin-bottom:6px;}
+.gram-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+.gram-cell{background:white;border-radius:8px;padding:8px 12px;border:1.5px solid #BBF7D0;font-size:12px;}
+.gram-cell .label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);display:block;margin-bottom:3px;}
+.freq-scale{display:flex;align-items:center;gap:0;margin:10px 0;background:white;border-radius:10px;border:1.5px solid #BBF7D0;overflow:hidden;}
+.freq-item{flex:1;padding:8px 6px;text-align:center;border-right:1px solid #BBF7D0;}
+.freq-item:last-child{border-right:none;}
+.freq-item .pct{font-size:10px;color:var(--muted);font-weight:800;}
+.freq-item .word{font-size:14px;font-weight:900;color:var(--em-d);}
+.freq-item .dots{font-size:11px;color:var(--muted);}
+.bank{display:flex;flex-wrap:wrap;gap:7px;background:var(--em-l);border:1.5px dashed var(--em);border-radius:10px;padding:11px 14px;margin-bottom:16px;}
+.wt{background:white;border:1.5px solid var(--em);color:var(--em-d);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:800;}
+.reorder-q{margin-bottom:16px;padding:14px;background:#F0FFF4;border-radius:11px;border:1.5px solid #86EFAC;}
+.reorder-num{font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;}
+.reorder-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px;}
+.rchip{padding:6px 12px;border:2px solid var(--blue);background:var(--blue-l);border-radius:20px;font-size:13px;font-weight:800;color:var(--blue-d);cursor:pointer;transition:all .2s;user-select:none;}
+.rchip:hover{background:var(--blue);color:white;}
+.rchip.placed{opacity:.3;pointer-events:none;text-decoration:line-through;}
+.answer-line{min-height:34px;padding:5px 12px;border:2px dashed var(--border);border-radius:10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;font-weight:700;background:white;cursor:pointer;margin-bottom:6px;}
+.answer-line.has{border-style:solid;border-color:var(--em);}
+.placed-chip{padding:4px 10px;background:var(--em-l);border:1.5px solid var(--em);border-radius:16px;font-size:13px;font-weight:800;color:var(--em-d);cursor:pointer;}
+.placed-chip:hover{background:var(--red-l);border-color:var(--red);color:var(--red);}
+textarea{width:100%;border:2px solid var(--border);border-radius:10px;padding:10px 12px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;outline:none;resize:vertical;color:var(--ink);}
+textarea:focus{border-color:var(--em);}
+.chk{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:11px;border:none;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;cursor:pointer;color:white;margin-top:14px;transition:all .2s;}
+.chk:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.18);}
+.chk:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none;}
+.chk.blue{background:var(--blue);}.chk.green{background:var(--green);}.chk.purple{background:var(--purple);}
+.chk.pink{background:var(--pink);}.chk.amber{background:var(--amber);}.chk.em{background:var(--em);}
+.fb{margin-top:10px;padding:10px 14px;border-radius:9px;font-size:13px;font-weight:700;display:none;animation:pop .3s;}
+.fb.show{display:block;}
+.fb.good{background:var(--green-l);color:var(--green-d);border:1.5px solid var(--green);}
+.fb.bad{background:var(--red-l);color:var(--red);border:1.5px solid var(--red);}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
+.submit-wrap{background:linear-gradient(135deg,#052E16,#14532D);border-radius:18px;padding:28px;text-align:center;margin-top:20px;}
+.submit-wrap h3{font-family:'Fredoka One',cursive;font-size:22px;color:white;margin-bottom:8px;}
+.submit-wrap p{color:rgba(255,255,255,.65);font-size:13px;font-weight:700;margin-bottom:20px;}
+.submit-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:14px;border:none;background:linear-gradient(135deg,#16A34A,#22C55E);color:white;font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px rgba(22,163,74,.4);}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(22,163,74,.55);}
+.submit-btn:disabled{background:#64748B;cursor:not-allowed;transform:none;box-shadow:none;}
+.submit-status{margin-top:16px;padding:12px 20px;border-radius:10px;font-size:14px;font-weight:700;display:none;}
+.submit-status.sending{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);display:block;}
+.submit-status.sent{background:#D1FAE5;color:#065F46;display:block;}
+.submit-status.error{background:#FEE2E2;color:#991B1B;display:block;}
+.final{background:linear-gradient(135deg,#052E16,#14532D);border-radius:18px;padding:28px;text-align:center;margin-top:28px;}
+.final h3{font-family:'Fredoka One',cursive;font-size:24px;color:white;margin-bottom:12px;}
+.final-score{font-family:'Fredoka One',cursive;font-size:64px;color:#86EFAC;line-height:1;}
+.final-out{font-size:15px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:18px;}
+.grade-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.gchip{padding:8px 16px;border-radius:10px;font-size:12px;font-weight:800;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);color:rgba(255,255,255,.7);}
+.gchip.on{background:rgba(134,239,172,.18);border-color:#86EFAC;color:#86EFAC;}
+.print-btn{display:flex;align-items:center;gap:8px;padding:11px 22px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--em),#22C55E);color:white;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;margin:0 auto 24px;transition:all .2s;}
+.print-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,163,74,.35);}
+#warn-modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+#warn-modal.show{display:flex;}
+.warn-box{background:white;border-radius:20px;padding:36px 32px;max-width:460px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:warnPop .35s cubic-bezier(.34,1.56,.64,1);}
+@keyframes warnPop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+.warn-icon{font-size:56px;margin-bottom:14px;display:block;}
+.warn-box h2{font-family:'Fredoka One',cursive;font-size:26px;color:#DC2626;margin-bottom:10px;}
+.warn-box p{font-size:14px;font-weight:700;color:#64748B;line-height:1.7;margin-bottom:16px;}
+.warn-count{display:inline-block;background:#FEE2E2;color:#DC2626;font-size:13px;font-weight:900;padding:6px 16px;border-radius:20px;margin-bottom:16px;border:2px solid #FCA5A5;}
+.warn-btn{padding:12px 32px;border-radius:12px;border:none;background:#DC2626;color:white;font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;cursor:pointer;transition:all .2s;}
+.warn-btn:hover{background:#B91C1C;transform:translateY(-2px);}
+#suspended-screen{display:none;position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0F172A 0%,#450A0A 60%,#7F1D1D 100%);align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:32px;}
+#suspended-screen.show{display:flex;}
+.sus-icon{font-size:80px;margin-bottom:20px;filter:drop-shadow(0 0 20px rgba(239,68,68,.6));animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.sus-box{max-width:520px;width:100%;}
+.sus-box h1{font-family:'Fredoka One',cursive;font-size:clamp(28px,6vw,46px);color:#FCA5A5;margin-bottom:12px;line-height:1.1;}
+.sus-box .sus-sub{font-size:16px;font-weight:800;color:rgba(255,255,255,.7);margin-bottom:28px;line-height:1.7;}
+.sus-detail{background:rgba(239,68,68,.15);border:2px solid rgba(239,68,68,.4);border-radius:14px;padding:20px 24px;margin-bottom:24px;text-align:left;}
+.sus-detail p{font-size:13px;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.sus-detail p:last-child{margin-bottom:0;}
+.sus-detail span.lbl{color:#FCA5A5;font-weight:900;min-width:100px;display:inline-block;}
+.sus-stamp{display:inline-block;border:3px solid #EF4444;border-radius:12px;padding:10px 28px;color:#EF4444;font-family:'Fredoka One',cursive;font-size:22px;letter-spacing:3px;transform:rotate(-3deg);margin-bottom:24px;text-transform:uppercase;}
+.sus-note{font-size:12px;font-weight:700;color:rgba(255,255,255,.35);line-height:1.6;}
+@media print{.instr-bar,.print-btn,.chk,.final,.submit-wrap,#warn-modal,#suspended-screen{display:none!important;}body{background:white;}.ex{box-shadow:none;break-inside:avoid;}}
+@media(max-width:520px){.match-grid,.gram-row{grid-template-columns:1fr}.student-fields{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="warn-modal"><div class="warn-box"><span class="warn-icon">⚠️</span><h2>¡Atención!</h2><p>Saliste de la pestaña del examen.<br>Esto <strong>no está permitido</strong> durante la evaluación.</p><div class="warn-count" id="warn-count-badge">Advertencia 1 de 1</div><p style="font-size:13px;color:#DC2626;font-weight:800">Si vuelves a salir, tu examen quedará <strong>SUSPENDIDO</strong>.</p><br><button class="warn-btn" onclick="closeWarning()">Entendido — volver al examen</button></div></div>
+<div id="suspended-screen"><div class="sus-box"><div class="sus-icon">🚫</div><h1>Examen Suspendido</h1><p class="sus-sub">Tu examen fue suspendido por abandonar la pestaña.</p><div class="sus-detail"><p><span class="lbl">Estudiante:</span><span id="sus-name">—</span></p><p><span class="lbl">Clase:</span><span id="sus-class">—</span></p><p><span class="lbl">Hora:</span><span id="sus-time">—</span></p><p><span class="lbl">Motivo:</span>Salida de pestaña detectada</p></div><div class="sus-stamp">Suspendido</div><p class="sus-note">Esta pantalla no puede cerrarse. Avisa a tu profesor/a.</p></div></div>
+
+<div class="cover"><div class="cover-inner">
+  <div class="school-line"><span class="school-badge">Metro Starter · Unit 7</span><span class="exam-badge">✏️ Written Exam</span></div>
+  <h1>Be <span>good!</span><br>Written Exam</h1>
+  <p class="cover-sub">Vocabulary · Reading · Adverbs of Frequency · Simple Present Q&amp;A · Writing</p>
+  <div class="student-fields">
+    <div class="sfield"><label>Student name</label><input type="text" id="student-name" placeholder="Write your full name..."></div>
+    <div class="sfield"><label>Date</label><input type="text" id="student-date" placeholder="dd / mm / yyyy"></div>
+    <div class="sfield"><label>Class</label><input type="text" id="student-class" placeholder="Your class..."></div>
+    <div class="score-total"><label>Total score</label><div class="score-val" id="total-disp">0</div><span>/ 70 pts</span></div>
+  </div>
+</div></div>
+
+<div class="instr-bar">
+  <div class="instr-chip"><span>⏱</span>~50 min</div>
+  <div class="instr-chip"><span>📖</span>Reading + Grammar</div>
+  <div class="instr-chip"><span>✍️</span>5 sections</div>
+  <div class="prog-wrap"><div class="prog-track"><div class="prog-fill" id="prog" style="width:0%"></div></div><div class="prog-pts" id="pts-disp">0 / 70</div></div>
+</div>
+<button class="print-btn" onclick="window.print()">🖨️ Print exam</button>
+
+<div class="page">
+
+<!-- §1 VOCABULARY 16pts -->
+<div class="section-div">
+  <div class="sec-num" style="color:var(--blue)">1</div>
+  <div class="sec-info"><h2 style="color:var(--blue-d)">Vocabulary</h2><p>Habits · Food &amp; drink · Word choice</p></div>
+  <div class="sec-pts"><strong style="color:var(--blue)">16</strong><span>points</span></div>
+</div>
+
+<!-- 1A habits -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--blue)">A</div><h3>Write the correct habit phrase under each emoji. Use the word bank.</h3><span class="ex-pts-tag">8 pts</span></div>
+  <div class="ex-body">
+    <div class="bank"><span class="wt">be on time</span><span class="wt">be late</span><span class="wt">study for tests</span><span class="wt">forget your gym clothes</span><span class="wt">eat fruit</span><span class="wt">eat fast food</span><span class="wt">play sports</span><span class="wt">watch TV all evening</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-bottom:6px">
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">🕐</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="be on time" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">😴</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="be late" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">📖</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="study for tests" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">👟</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="forget your gym clothes" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">🍎</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="eat fruit" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">🍔</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="eat fast food" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">⚽</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="play sports" data-ex="1a" placeholder="..."></div>
+      <div style="border:2px solid var(--border);border-radius:11px;padding:12px 6px 8px;text-align:center;background:white"><div style="font-size:28px;margin-bottom:6px">📺</div><input class="b" style="width:100%;min-width:0;font-size:10px;text-align:center" data-a="watch tv all evening" data-ex="1a" placeholder="..."></div>
+    </div>
+    <button class="chk blue" onclick="chkEx(this,'1a')">✅ Check</button><div class="fb" id="1a-fb"></div>
+  </div>
+</div>
+
+<!-- 1B match food -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--blue)">B</div><h3>Match each food word to its description.</h3><span class="ex-pts-tag">5 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">Click a food on the left, then click its description on the right.</div>
+    <div class="match-grid">
+      <div class="match-col">
+        <div class="mi" onclick="matchGame(this,'bL1')" data-id="bL1" style="background:#EFF6FF;border-color:#93C5FD;font-weight:800">🍞 bread</div>
+        <div class="mi" onclick="matchGame(this,'bL2')" data-id="bL2" style="background:#FEF2F2;border-color:#FCA5A5;font-weight:800">🥩 meat</div>
+        <div class="mi" onclick="matchGame(this,'bL3')" data-id="bL3" style="background:#F0FDF4;border-color:#86EFAC;font-weight:800">🥦 vegetables</div>
+        <div class="mi" onclick="matchGame(this,'bL4')" data-id="bL4" style="background:#FFFBEB;border-color:#FCD34D;font-weight:800">🍝 pasta</div>
+        <div class="mi" onclick="matchGame(this,'bL5')" data-id="bL5" style="background:#F5F3FF;border-color:#C4B5FD;font-weight:800">🌾 rice</div>
+      </div>
+      <div class="match-col">
+        <div class="mi" onclick="matchGame(this,'bR1')" data-id="bR1" style="border-style:dashed">You make sandwiches with it — white or brown</div>
+        <div class="mi" onclick="matchGame(this,'bR2')" data-id="bR2" style="border-style:dashed">You get this from animals like cows, pigs, or chickens</div>
+        <div class="mi" onclick="matchGame(this,'bR3')" data-id="bR3" style="border-style:dashed">Healthy plants you eat, like broccoli or carrots</div>
+        <div class="mi" onclick="matchGame(this,'bR4')" data-id="bR4" style="border-style:dashed">A popular Italian food you eat with sauce</div>
+        <div class="mi" onclick="matchGame(this,'bR5')" data-id="bR5" style="border-style:dashed">A white grain food, very popular in Asian countries</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 1C word choice -->
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--blue)">C</div><h3>Choose the correct adverb of frequency.</h3><span class="ex-pts-tag">3 pts</span></div>
+  <div class="ex-body">
+    <div class="mc" data-sec="1c"><div class="mc-q">1. My grandma goes to bed at 9:00 p.m. every single night. She _____ goes to bed early.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false)">never</button><button class="mc-opt" onclick="cho(this,false)">sometimes</button><button class="mc-opt" onclick="cho(this,true)">always</button></div></div>
+    <div class="mc" data-sec="1c"><div class="mc-q">2. I eat pizza one or two times a year. I _____ eat pizza.</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false)">always</button><button class="mc-opt" onclick="cho(this,false)">often</button><button class="mc-opt" onclick="cho(this,true)">sometimes</button></div></div>
+    <div class="mc" data-sec="1c"><div class="mc-q">3. She _____ is late. She arrives before 8:00 every day! (0%)</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false)">always</button><button class="mc-opt" onclick="cho(this,false)">sometimes</button><button class="mc-opt" onclick="cho(this,true)">never</button></div></div>
+  </div>
+</div>
+
+<!-- §2 READING 18pts -->
+<div class="section-div">
+  <div class="sec-num" style="color:var(--pink)">2</div>
+  <div class="sec-info"><h2 style="color:var(--pink-d)">Reading</h2><p>Read a blog about habits and food</p></div>
+  <div class="sec-pts"><strong style="color:var(--pink)">18</strong><span>points</span></div>
+</div>
+
+<div class="read-passage">
+  <h4>🥗 My Healthy Habits Blog — Hello from Lima!</h4>
+  <div class="read-loc">📍 Lima · Peru · ✍️ by Carlos, age 15</div>
+  <p>Hi! My name is Carlos and I'm <strong>15</strong> years old. I'm from Lima, Peru. I write a blog about <span class="hi">healthy habits</span>!</p>
+  <p>I <strong>always</strong> have breakfast before school — it's very important! I often eat fruit and <strong>vegetables</strong> — they're <span class="hi">delicious</span>! I never eat fast food at school. My mom sometimes cooks pasta or <strong>rice</strong> for dinner.</p>
+  <p>My best friend Ana has different habits. She <strong>never</strong> eats breakfast! She sometimes eats <strong>fast food</strong> for lunch — maybe three times a week. But she <strong>always</strong> plays sports after school. She often goes to bed at <strong>10:00</strong> p.m.</p>
+  <p>On my blog I ask: 'How often do you eat <span class="hi">healthy food</span>? Do you study for tests? Do you go to bed early?' I think good <span class="hi">habits</span> are very important. Do you agree?</p>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--pink)">A</div><h3>Read the text. Write <strong>T</strong> (True) or <strong>F</strong> (False).</h3><span class="ex-pts-tag">6 pts</span></div>
+  <div class="ex-body">
+    <div class="tf" id="tf1"><div class="tf-num">1</div><div class="tf-q">Carlos is from Lima, Peru.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','T','tf1')">T</button><button class="tf-b F" onclick="doTF(this,'F','T','tf1')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf2"><div class="tf-num">2</div><div class="tf-q">Carlos never has breakfast before school.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','F','tf2')">T</button><button class="tf-b F" onclick="doTF(this,'F','F','tf2')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf3"><div class="tf-num">3</div><div class="tf-q">Carlos often eats fruit and vegetables.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','T','tf3')">T</button><button class="tf-b F" onclick="doTF(this,'F','T','tf3')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf4"><div class="tf-num">4</div><div class="tf-q">Ana always eats breakfast.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','F','tf4')">T</button><button class="tf-b F" onclick="doTF(this,'F','F','tf4')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf5"><div class="tf-num">5</div><div class="tf-q">Ana always plays sports after school.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','T','tf5')">T</button><button class="tf-b F" onclick="doTF(this,'F','T','tf5')">F</button></div><div class="tf-icon"></div></div>
+    <div class="tf" id="tf6"><div class="tf-num">6</div><div class="tf-q">Carlos writes a blog about healthy habits.</div><div class="tf-btns"><button class="tf-b T" onclick="doTF(this,'T','T','tf6')">T</button><button class="tf-b F" onclick="doTF(this,'F','T','tf6')">F</button></div><div class="tf-icon"></div></div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--pink)">B</div><h3>Read again. Complete the sentences with information from the text.</h3><span class="ex-pts-tag">8 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">Write 1–3 words maximum per blank.</div>
+    <div class="fl"><div class="fn">1</div> Carlos is <input class="b sm" data-a="15" data-ex="2b" placeholder="..."> years old.</div>
+    <div class="fl"><div class="fn">2</div> He <input class="b sm" data-a="always" data-ex="2b" placeholder="..."> has breakfast before school.</div>
+    <div class="fl"><div class="fn">3</div> He often eats fruit and <input class="b" data-a="vegetables" data-ex="2b" placeholder="...">.</div>
+    <div class="fl"><div class="fn">4</div> His mom sometimes cooks pasta or <input class="b sm" data-a="rice" data-ex="2b" placeholder="..."> for dinner.</div>
+    <div class="fl"><div class="fn">5</div> Ana <input class="b sm" data-a="never" data-ex="2b" placeholder="..."> eats breakfast.</div>
+    <div class="fl"><div class="fn">6</div> Ana sometimes eats <input class="b lg" data-a="fast food" data-ex="2b" placeholder="..."> for lunch.</div>
+    <div class="fl"><div class="fn">7</div> Ana <input class="b sm" data-a="always" data-ex="2b" placeholder="..."> plays sports after school.</div>
+    <div class="fl"><div class="fn">8</div> Ana often goes to bed at <input class="b sm" data-a="10:00" data-ex="2b" placeholder="..."> p.m.</div>
+    <button class="chk pink" onclick="chkEx(this,'2b')">✅ Check</button><div class="fb" id="2b-fb"></div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--pink)">C</div><h3>Find the <span class="hi" style="background:#FEF3C7">highlighted words</span>. Choose the best meaning.</h3><span class="ex-pts-tag">4 pts</span></div>
+  <div class="ex-body">
+    <div class="mc" data-sec="2c"><div class="mc-q">1. <strong>"healthy habits"</strong> — what does "healthy" mean?</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false)">bad for your body</button><button class="mc-opt" onclick="cho(this,true)">good for your body</button><button class="mc-opt" onclick="cho(this,false)">very tasty</button></div></div>
+    <div class="mc" data-sec="2c"><div class="mc-q">2. <strong>"delicious"</strong> — Carlos says vegetables are "delicious". This means...</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,true)">very good to eat / tasty</button><button class="mc-opt" onclick="cho(this,false)">very boring</button><button class="mc-opt" onclick="cho(this,false)">very expensive</button></div></div>
+    <div class="mc" data-sec="2c"><div class="mc-q">3. <strong>"never"</strong> — Ana "never" eats breakfast. "Never" means...</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false)">every day</button><button class="mc-opt" onclick="cho(this,true)">not at any time / 0%</button><button class="mc-opt" onclick="cho(this,false)">two or three times a week</button></div></div>
+    <div class="mc" data-sec="2c"><div class="mc-q">4. <strong>"habits"</strong> — a "habit" is something you...</div><div class="mc-opts"><button class="mc-opt" onclick="cho(this,false)">eat for breakfast</button><button class="mc-opt" onclick="cho(this,true)">do regularly, often without thinking</button><button class="mc-opt" onclick="cho(this,false)">study at school</button></div></div>
+  </div>
+</div>
+
+<!-- §3 ADVERBS OF FREQUENCY 16pts -->
+<div class="section-div">
+  <div class="sec-num" style="color:var(--green)">3</div>
+  <div class="sec-info"><h2 style="color:var(--green-d)">Grammar · Adverbs of Frequency</h2><p>never · sometimes · often · always · position rules</p></div>
+  <div class="sec-pts"><strong style="color:var(--green)">16</strong><span>points</span></div>
+</div>
+
+<div class="gram-box">
+  <strong style="color:var(--green-d)">📌 Grammar: Adverbs of frequency</strong>
+  <div class="freq-scale">
+    <div class="freq-item"><div class="pct">0%</div><div class="word">never</div><div class="dots">○</div></div>
+    <div class="freq-item"><div class="pct">~25%</div><div class="word">sometimes</div><div class="dots">●</div></div>
+    <div class="freq-item"><div class="pct">~75%</div><div class="word">often</div><div class="dots">●●</div></div>
+    <div class="freq-item"><div class="pct">100%</div><div class="word">always</div><div class="dots">●●●</div></div>
+  </div>
+  <div class="gram-row">
+    <div class="gram-cell"><span class="label">After verb BE</span>I <strong>am never</strong> late. &nbsp;·&nbsp; She <strong>is always</strong> on time.</div>
+    <div class="gram-cell"><span class="label">Before other verbs</span>I <strong>never eat</strong> fast food. &nbsp;·&nbsp; She <strong>often goes</strong> to bed early.</div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--green)">A</div><h3>Complete with the correct adverb in the correct position.</h3><span class="ex-pts-tag">6 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">The adverb is given in [ ]. Write it in the blank.</div>
+    <div class="fl"><div class="fn">1</div> She is <input class="b sm" data-a="never" data-ex="3a" placeholder="..."> late. [never]</div>
+    <div class="fl"><div class="fn">2</div> I <input class="b sm" data-a="sometimes" data-ex="3a" placeholder="..."> eat fast food. [sometimes]</div>
+    <div class="fl"><div class="fn">3</div> He is <input class="b sm" data-a="always" data-ex="3a" placeholder="..."> late for school. [always]</div>
+    <div class="fl"><div class="fn">4</div> We <input class="b sm" data-a="often" data-ex="3a" placeholder="..."> play soccer on weekends. [often]</div>
+    <div class="fl"><div class="fn">5</div> They are <input class="b sm" data-a="always" data-ex="3a" placeholder="..."> happy at school. [always]</div>
+    <div class="fl"><div class="fn">6</div> She <input class="b sm" data-a="never" data-ex="3a" placeholder="..."> goes to bed late. [never]</div>
+    <button class="chk green" onclick="chkEx(this,'3a')">✅ Check</button><div class="fb" id="3a-fb"></div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--green)">B</div><h3>Write the correct adverb. Put it in the right position!</h3><span class="ex-pts-tag">6 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">The adverb is given in [ ]. After BE, or before other verbs.</div>
+    <div class="fl"><div class="fn">1</div> I <input class="b sm" data-a="always" data-ex="3b" placeholder="..."> eat fruit. [always]</div>
+    <div class="fl"><div class="fn">2</div> She is <input class="b sm" data-a="never" data-ex="3b" placeholder="..."> late. [never]</div>
+    <div class="fl"><div class="fn">3</div> They <input class="b sm" data-a="often" data-ex="3b" placeholder="..."> study for tests. [often]</div>
+    <div class="fl"><div class="fn">4</div> He <input class="b sm" data-a="sometimes" data-ex="3b" placeholder="..."> watches TV. [sometimes]</div>
+    <div class="fl"><div class="fn">5</div> I am <input class="b sm" data-a="always" data-ex="3b" placeholder="..."> on time. [always]</div>
+    <div class="fl"><div class="fn">6</div> She <input class="b sm" data-a="never" data-ex="3b" placeholder="..."> goes to bed early. [never]</div>
+    <button class="chk green" onclick="chkEx(this,'3b')">✅ Check</button><div class="fb" id="3b-fb"></div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--green)">C</div><h3>Choose the grammatically correct sentence.</h3><span class="ex-pts-tag">4 pts</span></div>
+  <div class="ex-body">
+    <div class="mc" data-sec="3c"><div class="mc-q">1. Choose the correct sentence:</div><div class="mc-opts" style="flex-direction:column"><button class="mc-opt" onclick="cho(this,false)">a) I never am late for school.</button><button class="mc-opt" onclick="cho(this,true)">b) I am never late for school.</button><button class="mc-opt" onclick="cho(this,false)">c) I am late never for school.</button></div></div>
+    <div class="mc" data-sec="3c"><div class="mc-q">2. Choose the correct sentence:</div><div class="mc-opts" style="flex-direction:column"><button class="mc-opt" onclick="cho(this,true)">a) She often eats fruit for lunch.</button><button class="mc-opt" onclick="cho(this,false)">b) She eats often fruit for lunch.</button><button class="mc-opt" onclick="cho(this,false)">c) Often eats she fruit for lunch.</button></div></div>
+    <div class="mc" data-sec="3c"><div class="mc-q">3. Choose the correct sentence:</div><div class="mc-opts" style="flex-direction:column"><button class="mc-opt" onclick="cho(this,false)">a) He always is on time.</button><button class="mc-opt" onclick="cho(this,false)">b) He is on time always.</button><button class="mc-opt" onclick="cho(this,true)">c) He is always on time.</button></div></div>
+    <div class="mc" data-sec="3c"><div class="mc-q">4. Choose the correct sentence:</div><div class="mc-opts" style="flex-direction:column"><button class="mc-opt" onclick="cho(this,true)">a) They sometimes watch TV all evening.</button><button class="mc-opt" onclick="cho(this,false)">b) They watch sometimes TV all evening.</button><button class="mc-opt" onclick="cho(this,false)">c) Sometimes they watch TV never.</button></div></div>
+  </div>
+</div>
+
+<!-- §4 DO/DOES Q&A 14pts -->
+<div class="section-div">
+  <div class="sec-num" style="color:var(--purple)">4</div>
+  <div class="sec-info"><h2 style="color:var(--purple-d)">Grammar · Simple Present Q&amp;A</h2><p>Do / Does questions · Short answers</p></div>
+  <div class="sec-pts"><strong style="color:var(--purple)">14</strong><span>points</span></div>
+</div>
+
+<div class="gram-box" style="background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border-color:#C4B5FD;">
+  <strong style="color:var(--purple-d)">📌 Grammar: Do / Does — questions &amp; short answers</strong>
+  <div class="gram-row">
+    <div class="gram-cell" style="border-color:#DDD6FE"><span class="label">❓ Questions</span><strong>Do</strong> I / you / we / they like meat? &nbsp;·&nbsp; <strong>Does</strong> he / she / it eat fish?</div>
+    <div class="gram-cell" style="border-color:#DDD6FE"><span class="label">✅ Yes</span>Yes, I/you/we/they <strong>do</strong>. &nbsp;·&nbsp; Yes, he/she/it <strong>does</strong>.</div>
+    <div class="gram-cell" style="border-color:#DDD6FE"><span class="label">❌ No</span>No, I/you/we/they <strong>don't</strong>. &nbsp;·&nbsp; No, he/she/it <strong>doesn't</strong>.</div>
+    <div class="gram-cell" style="border-color:#DDD6FE"><span class="label">💡 Remember</span>Use the <strong>base verb</strong>: She doesn't <strong>eat</strong> ✓ (not doesn't <strong>eats</strong> ✗)</div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--purple)">A</div><h3>Complete each question with <em>Do</em> or <em>Does</em>.</h3><span class="ex-pts-tag">6 pts</span></div>
+  <div class="ex-body">
+    <div class="fl"><div class="fn">1</div> <input class="b sm" data-a="do" data-ex="4a" placeholder="..."> you eat vegetables every day?</div>
+    <div class="fl"><div class="fn">2</div> <input class="b sm" data-a="does" data-ex="4a" placeholder="..."> she like fast food?</div>
+    <div class="fl"><div class="fn">3</div> <input class="b sm" data-a="do" data-ex="4a" placeholder="..."> they play sports after school?</div>
+    <div class="fl"><div class="fn">4</div> <input class="b sm" data-a="does" data-ex="4a" placeholder="..."> he study for tests?</div>
+    <div class="fl"><div class="fn">5</div> <input class="b sm" data-a="do" data-ex="4a" placeholder="..."> we have pasta for dinner tonight?</div>
+    <div class="fl"><div class="fn">6</div> <input class="b sm" data-a="does" data-ex="4a" placeholder="..."> your mom cook every day?</div>
+    <button class="chk purple" onclick="chkEx(this,'4a')">✅ Check</button><div class="fb" id="4a-fb"></div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--purple)">B</div><h3>Write <em>Do/Does</em> for the question, then complete the short answer.</h3><span class="ex-pts-tag">8 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">Write Do/Does for the question and do/don't/does/doesn't for the answer.</div>
+    <div class="fl" style="flex-wrap:wrap;align-items:flex-start;gap:8px"><div class="fn">1</div><span style="font-weight:700">Q:</span> <input class="b sm" data-a="do" data-ex="4b" placeholder="..."> you eat fruit? &nbsp;<span style="font-weight:700">Answer (✓):</span> Yes, I <input class="b sm" data-a="do" data-ex="4b" placeholder="">.</div>
+    <div class="fl" style="flex-wrap:wrap;align-items:flex-start;gap:8px"><div class="fn">2</div><span style="font-weight:700">Q:</span> <input class="b sm" data-a="does" data-ex="4b" placeholder="..."> she like meat? &nbsp;<span style="font-weight:700">Answer (✗):</span> No, she <input class="b sm" data-a="doesn't" data-ex="4b" placeholder="">.</div>
+    <div class="fl" style="flex-wrap:wrap;align-items:flex-start;gap:8px"><div class="fn">3</div><span style="font-weight:700">Q:</span> <input class="b sm" data-a="do" data-ex="4b" placeholder="..."> they study for tests? &nbsp;<span style="font-weight:700">Answer (✓):</span> Yes, they <input class="b sm" data-a="do" data-ex="4b" placeholder="">.</div>
+    <div class="fl" style="flex-wrap:wrap;align-items:flex-start;gap:8px"><div class="fn">4</div><span style="font-weight:700">Q:</span> <input class="b sm" data-a="does" data-ex="4b" placeholder="..."> he go to bed early? &nbsp;<span style="font-weight:700">Answer (✗):</span> No, he <input class="b sm" data-a="doesn't" data-ex="4b" placeholder="">.</div>
+    <button class="chk purple" onclick="chkEx(this,'4b')">✅ Check</button><div class="fb" id="4b-fb"></div>
+  </div>
+</div>
+
+<!-- §5 WRITING 6pts -->
+<div class="section-div">
+  <div class="sec-num" style="color:var(--amber)">5</div>
+  <div class="sec-info"><h2 style="color:var(--amber-d)">Writing</h2><p>Sentence ordering · Free paragraph about your habits</p></div>
+  <div class="sec-pts"><strong style="color:var(--amber)">6</strong><span>points</span></div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--amber)">A</div><h3>Put the words in the correct order. Click words to build the sentence!</h3><span class="ex-pts-tag">3 pts</span></div>
+  <div class="ex-body">
+    <div class="inst">Click the words to build the sentence. Click a placed word to remove it.</div>
+    <div class="reorder-q" id="rq1">
+      <div class="reorder-num">Sentence 1</div>
+      <div class="reorder-chips"><span class="rchip" onclick="placeWord(this,'rq1')">I</span><span class="rchip" onclick="placeWord(this,'rq1')">never</span><span class="rchip" onclick="placeWord(this,'rq1')">eat</span><span class="rchip" onclick="placeWord(this,'rq1')">fast</span><span class="rchip" onclick="placeWord(this,'rq1')">food.</span><span class="rchip" onclick="placeWord(this,'rq1')">always</span></div>
+      <div class="answer-line" id="rq1-ans" onclick="removeWord(event,'rq1')"></div>
+      <button class="chk amber" style="margin-top:6px;padding:7px 16px;font-size:12px" onclick="checkReorder('rq1','I never eat fast food.','5',this)">🔍 Check</button>
+      <div class="fb" id="rq1-fb"></div>
+    </div>
+    <div class="reorder-q" id="rq2">
+      <div class="reorder-num">Sentence 2</div>
+      <div class="reorder-chips"><span class="rchip" onclick="placeWord(this,'rq2')">She</span><span class="rchip" onclick="placeWord(this,'rq2')">is</span><span class="rchip" onclick="placeWord(this,'rq2')">sometimes</span><span class="rchip" onclick="placeWord(this,'rq2')">late</span><span class="rchip" onclick="placeWord(this,'rq2')">for</span><span class="rchip" onclick="placeWord(this,'rq2')">school.</span><span class="rchip" onclick="placeWord(this,'rq2')">never</span></div>
+      <div class="answer-line" id="rq2-ans" onclick="removeWord(event,'rq2')"></div>
+      <button class="chk amber" style="margin-top:6px;padding:7px 16px;font-size:12px" onclick="checkReorder('rq2','She is sometimes late for school.','5',this)">🔍 Check</button>
+      <div class="fb" id="rq2-fb"></div>
+    </div>
+    <div class="reorder-q" id="rq3">
+      <div class="reorder-num">Sentence 3</div>
+      <div class="reorder-chips"><span class="rchip" onclick="placeWord(this,'rq3')">Do</span><span class="rchip" onclick="placeWord(this,'rq3')">you</span><span class="rchip" onclick="placeWord(this,'rq3')">like</span><span class="rchip" onclick="placeWord(this,'rq3')">pizza</span><span class="rchip" onclick="placeWord(this,'rq3')">and</span><span class="rchip" onclick="placeWord(this,'rq3')">cheese?</span><span class="rchip" onclick="placeWord(this,'rq3')">Does</span></div>
+      <div class="answer-line" id="rq3-ans" onclick="removeWord(event,'rq3')"></div>
+      <button class="chk amber" style="margin-top:6px;padding:7px 16px;font-size:12px" onclick="checkReorder('rq3','Do you like pizza and cheese?','5',this)">🔍 Check</button>
+      <div class="fb" id="rq3-fb"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ex">
+  <div class="ex-hd"><div class="ex-letter" style="background:var(--amber)">B</div><h3>Write 5–7 sentences about YOUR habits and food. Use Unit 7 grammar!</h3><span class="ex-pts-tag">3 pts</span></div>
+  <div class="ex-body">
+    <div style="background:var(--amber-l);border:1.5px dashed var(--amber);border-radius:10px;padding:13px 16px;margin-bottom:14px;font-size:13px;font-weight:700;color:var(--amber-d);line-height:2;">
+      💡 <strong>Checklist (1 pt per structure):</strong><br>
+      ☐ &nbsp;Use adverbs of frequency: <em>never / sometimes / often / always</em> (at least 2, correct position!)<br>
+      ☐ &nbsp;Include a food word from Unit 7<br>
+      ☐ &nbsp;Write a <em>Do / Does</em> question about food or habits
+    </div>
+    <textarea id="writing-5b" rows="7" placeholder="I always have breakfast. I never eat fast food. I sometimes... My friend often... Does your family eat...?"></textarea>
+    <p style="font-size:12px;font-style:italic;color:var(--muted);font-weight:600;margin-top:6px;">👩‍🏫 Teacher: award 1 pt per correct structure (checklist above). Max 3 pts.</p>
+  </div>
+</div>
+
+<div class="final">
+  <h3>🌿 Score so far</h3>
+  <div class="final-score" id="total-disp2">0</div>
+  <div class="final-out">out of 70 points (auto-graded sections)</div>
+  <div class="grade-row">
+    <span class="gchip" data-min="63" data-max="70">63–70 · Excellent ⭐⭐⭐</span>
+    <span class="gchip" data-min="49" data-max="62">49–62 · Very Good ⭐⭐</span>
+    <span class="gchip" data-min="35" data-max="48">35–48 · Good ⭐</span>
+    <span class="gchip" data-min="21" data-max="34">21–34 · Keep practicing 💪</span>
+    <span class="gchip" data-min="0" data-max="20">0–20 · Review needed 📖</span>
+  </div>
+</div>
+
+<div class="submit-wrap">
+  <h3>📤 Send exam to teacher</h3>
+  <p>Make sure you've written your full name at the top before sending!</p>
+  <button class="submit-btn" id="submit-btn" onclick="submitExam()">✉️ Send my exam</button>
+  <div class="submit-status" id="submit-status"></div>
+</div>
+
+</div><!-- end .page -->
+
+<script>
+// ══════════════════════════════════════════════
+//  ▶ PEGA AQUÍ TU URL DE APPS SCRIPT
+// ══════════════════════════════════════════════
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwm5ZyDFHIZCc7xFCw_23vGbRJR-rzlrS9hLNOYR3Btnzucde7ff4kQ8cfDhnwJ-c5m/exec';
+// ══════════════════════════════════════════════
+
+const STORAGE_KEY='exam_u7_suspended', WARN_KEY='exam_u7_warnings', MAX_WARNINGS=1;
+let examLocked=false, titleInterval=null, originalTitle=document.title;
+
+window.addEventListener('DOMContentLoaded',function(){
+  const saved=localStorage.getItem(STORAGE_KEY);
+  if(saved) showSuspendedScreen(JSON.parse(saved));
+});
+document.addEventListener('visibilitychange',()=>{ if(document.hidden&&!examLocked) handleViolation(); });
+window.addEventListener('blur',()=>{ if(!examLocked) handleViolation(); });
+
+function handleViolation(){
+  if(examLocked) return;
+  let w=parseInt(localStorage.getItem(WARN_KEY)||'0')+1;
+  localStorage.setItem(WARN_KEY,w);
+  if(w>MAX_WARNINGS){ triggerSuspension(); }
+  else {
+    flashTitle('⚠️ ¡ADVERTENCIA! Regresa al examen');
+    document.getElementById('warn-count-badge').textContent='Advertencia '+w+' de '+MAX_WARNINGS+' — la próxima vez el examen se suspende';
+    document.getElementById('warn-modal').classList.add('show');
+  }
+}
+function closeWarning(){ document.getElementById('warn-modal').classList.remove('show'); stopTitleFlash(); document.title=originalTitle; }
+function triggerSuspension(){
+  examLocked=true;
+  const name=document.getElementById('student-name')?.value?.trim()||'(sin nombre)';
+  const cls=document.getElementById('student-class')?.value?.trim()||'(sin clase)';
+  const now=new Date().toLocaleString('es-BO',{dateStyle:'short',timeStyle:'medium'});
+  const info={name,class:cls,time:now};
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(info));
+  localStorage.removeItem(WARN_KEY);
+  showSuspendedScreen(info);
+}
+function showSuspendedScreen(info){
+  examLocked=true;
+  document.querySelectorAll('input,textarea,button,.mc-opt,.tf-b,.mi,.rchip').forEach(el=>{ el.disabled=true; el.style.pointerEvents='none'; });
+  document.getElementById('sus-name').textContent=info.name||'—';
+  document.getElementById('sus-class').textContent=info.class||'—';
+  document.getElementById('sus-time').textContent=info.time||'—';
+  document.getElementById('suspended-screen').classList.add('show');
+  document.body.style.overflow='hidden';
+  stopTitleFlash(); flashTitle('🚫 EXAMEN SUSPENDIDO');
+}
+function flashTitle(msg){ stopTitleFlash(); let t=false; titleInterval=setInterval(()=>{ document.title=t?msg:originalTitle; t=!t; },900); }
+function stopTitleFlash(){ if(titleInterval){ clearInterval(titleInterval); titleInterval=null; } }
+
+// ─── SCORING ───────────────────────────────────
+let total=0; const MAX=70; const secScore={'1':0,'2':0,'3':0,'4':0,'5':0};
+function upd(n,sec){
+  total+=n; total=Math.max(0,total);
+  if(sec) secScore[sec]=(secScore[sec]||0)+n;
+  const pct=Math.min(100,Math.round(total/MAX*100));
+  document.getElementById('prog').style.width=pct+'%';
+  document.getElementById('pts-disp').textContent=total+' / '+MAX;
+  document.getElementById('total-disp').textContent=total;
+  document.getElementById('total-disp2').textContent=total;
+  document.querySelectorAll('.gchip').forEach(c=>{ c.classList.toggle('on',total>=+c.dataset.min&&total<=+c.dataset.max); });
+}
+
+// ─── FILL-IN CHECK ─────────────────────────────
+function chkEx(btn,id){
+  const body=btn.closest('.ex-body');
+  const inputs=body.querySelectorAll('input[data-a]');
+  let ok=0; const sec=id.charAt(0);
+  inputs.forEach(inp=>{
+    const ans=(inp.dataset.a||'').toLowerCase().trim();
+    const val=inp.value.toLowerCase().trim();
+    const correct=val===ans||ans.split('/').map(s=>s.trim()).includes(val);
+    inp.classList.toggle('ok',correct&&val!=='');
+    inp.classList.toggle('no',!correct&&val!=='');
+    if(correct) ok++;
+  });
+  const tot=inputs.length;
+  const fb=document.getElementById(id+'-fb');
+  fb.classList.add('show');
+  if(ok===tot&&tot>0){ fb.className='fb show good'; fb.textContent='🎉 Perfect! '+ok+'/'+tot; }
+  else { fb.className='fb show bad'; fb.textContent='💪 '+ok+'/'+tot+' correct — check the red ones!'; }
+  upd(ok,sec); btn.disabled=true;
+}
+
+// ─── MULTIPLE CHOICE ───────────────────────────
+function cho(btn,isOk){
+  const g=btn.closest('.mc-opts');
+  g.querySelectorAll('.mc-opt').forEach(b=>{ b.classList.remove('ok','no','rev'); b.disabled=false; });
+  if(isOk){ btn.classList.add('ok'); }
+  else { btn.classList.add('no'); g.querySelectorAll('.mc-opt').forEach(b=>{ if(b!==btn) b.classList.add('rev'); }); }
+  g.querySelectorAll('.mc-opt').forEach(b=>b.disabled=true);
+  const mc=btn.closest('.mc');
+  const sec=mc&&mc.dataset.sec?mc.dataset.sec.charAt(0):'0';
+  if(isOk) upd(1,sec);
+}
+
+// ─── TRUE / FALSE ──────────────────────────────
+function doTF(btn,chosen,correct,rowId){
+  const row=document.getElementById(rowId);
+  row.querySelectorAll('.tf-b').forEach(b=>{ b.classList.remove('sel'); b.disabled=true; });
+  btn.classList.add('sel');
+  const icon=row.querySelector('.tf-icon');
+  if(chosen===correct){ row.classList.add('ok'); icon.textContent='✅'; upd(1,'2'); }
+  else { row.classList.add('no'); icon.textContent='❌'; }
+}
+
+// ─── MATCHING ──────────────────────────────────
+let selLeft=null, selRight=null;
+const matchMap={bL1:'bR1',bL2:'bR2',bL3:'bR3',bL4:'bR4',bL5:'bR5'};
+function matchGame(el,id){
+  if(el.classList.contains('matched')) return;
+  const isL=id.startsWith('bL');
+  if(isL){ if(selLeft) selLeft.classList.remove('selL'); selLeft=el; el.classList.add('selL'); }
+  else { if(selRight) selRight.classList.remove('selR'); selRight=el; el.classList.add('selR'); }
+  if(selLeft&&selRight){
+    const lId=selLeft.dataset.id, rId=selRight.dataset.id;
+    if(matchMap[lId]===rId){
+      selLeft.classList.remove('selL'); selLeft.classList.add('matched');
+      selRight.classList.remove('selR'); selRight.classList.add('matched');
+      upd(1,'1'); selLeft=null; selRight=null;
+    } else {
+      selLeft.classList.add('wrong'); selRight.classList.add('wrong');
+      const l=selLeft, r=selRight;
+      setTimeout(()=>{ l.classList.remove('selL','wrong'); r.classList.remove('selR','wrong'); },900);
+      selLeft=null; selRight=null;
+    }
+  }
+}
+
+// ─── REORDER ───────────────────────────────────
+function placeWord(chip,qId){
+  if(chip.classList.contains('placed')) return;
+  chip.classList.add('placed');
+  const ansDiv=document.getElementById(qId+'-ans');
+  const placed=document.createElement('span');
+  placed.className='placed-chip'; placed.textContent=chip.textContent; placed.dataset.src=chip.textContent;
+  ansDiv.classList.add('has'); ansDiv.appendChild(placed);
+}
+function removeWord(e,qId){
+  const chip=e.target.closest('.placed-chip');
+  if(!chip) return;
+  const word=chip.dataset.src; chip.remove();
+  const ansDiv=document.getElementById(qId+'-ans');
+  if(!ansDiv.querySelector('.placed-chip')) ansDiv.classList.remove('has');
+  document.getElementById(qId).querySelectorAll('.rchip').forEach(c=>{ if(c.textContent===word&&c.classList.contains('placed')) c.classList.remove('placed'); });
+}
+function checkReorder(qId,correctStr,sec,btn){
+  const ansDiv=document.getElementById(qId+'-ans');
+  const placed=[...ansDiv.querySelectorAll('.placed-chip')].map(c=>c.textContent.trim());
+  const isOk=placed.join(' ')===correctStr;
+  btn.disabled=true;
+  const fb=document.getElementById(qId+'-fb'); fb.classList.add('show');
+  if(isOk){ fb.className='fb show good'; fb.textContent='🎉 Correct!'; upd(1,sec); }
+  else { fb.className='fb show bad'; fb.textContent='❌ Answer: '+correctStr; }
+}
+
+// ─── COLLECT ANSWERS ───────────────────────────
+function collectAnswers(){
+  const answers={};
+  function getMC(sel){
+    return[...document.querySelectorAll(sel)].map((mc,i)=>{
+      const q=mc.querySelector('.mc-q')?.textContent?.substring(0,45)||('Q'+(i+1));
+      const s=mc.querySelector('.mc-opt.ok,.mc-opt.no');
+      return q+' → '+(s?s.textContent.trim().substring(0,30)+(s.classList.contains('ok')?' ✅':' ❌'):'(sin resp.)');
+    }).join(' | ');
+  }
+  answers['1a_habits']=[...document.querySelectorAll('input[data-ex="1a"]')].map(i=>i.value||'_').join(' / ');
+  answers['1b_match']=[...document.querySelectorAll('.mi.matched')].map(m=>m.textContent.trim()).join(' | ')||'(sin completar)';
+  answers['1c_mc']=getMC('.mc[data-sec="1c"]');
+  answers['2a_tf']=['tf1','tf2','tf3','tf4','tf5','tf6'].map(id=>{
+    const row=document.getElementById(id);
+    const q=row?.querySelector('.tf-q')?.textContent?.substring(0,35)||id;
+    const s=row?.querySelector('.tf-b.sel');
+    const ic=row?.querySelector('.tf-icon')?.textContent||'';
+    return q.trim()+' → '+(s?s.textContent:'?')+ic;
+  }).join(' | ');
+  answers['2b_inputs']=[...document.querySelectorAll('input[data-ex="2b"]')].map(i=>i.value||'_').join(' / ');
+  answers['2c_mc']=getMC('.mc[data-sec="2c"]');
+  answers['3a_inputs']=[...document.querySelectorAll('input[data-ex="3a"]')].map(i=>i.value||'_').join(' / ');
+  answers['3b_inputs']=[...document.querySelectorAll('input[data-ex="3b"]')].map(i=>i.value||'_').join(' / ');
+  answers['3c_mc']=getMC('.mc[data-sec="3c"]');
+  answers['4a_inputs']=[...document.querySelectorAll('input[data-ex="4a"]')].map(i=>i.value||'_').join(' / ');
+  answers['4b_inputs']=[...document.querySelectorAll('input[data-ex="4b"]')].map(i=>i.value||'_').join(' / ');
+  const r1=[...document.querySelectorAll('#rq1-ans .placed-chip')].map(c=>c.textContent).join(' ');
+  const r2=[...document.querySelectorAll('#rq2-ans .placed-chip')].map(c=>c.textContent).join(' ');
+  const r3=[...document.querySelectorAll('#rq3-ans .placed-chip')].map(c=>c.textContent).join(' ');
+  answers['5a_reorder']=`S1:"${r1}" | S2:"${r2}" | S3:"${r3}"`;
+  answers['5b_writing']=document.getElementById('writing-5b')?.value||'';
+  return answers;
+}
+
+// ─── SUBMIT ────────────────────────────────────
+function submitExam(){
+  const name=document.getElementById('student-name').value.trim();
+  const date=document.getElementById('student-date').value.trim();
+  const cls=document.getElementById('student-class').value.trim();
+  const statusEl=document.getElementById('submit-status');
+  const btn=document.getElementById('submit-btn');
+  if(!name){ alert('⚠️ Escribe tu nombre completo antes de enviar.'); document.getElementById('student-name').focus(); return; }
+  if(!APPS_SCRIPT_URL||APPS_SCRIPT_URL==='PEGAR_URL_AQUI'){
+    statusEl.className='submit-status error'; statusEl.style.display='block';
+    statusEl.textContent='⚙️ El profesor aún no configuró la URL. Avísale.'; return;
+  }
+  btn.disabled=true; btn.textContent='⏳ Enviando...';
+  statusEl.className='submit-status sending'; statusEl.style.display='block'; statusEl.textContent='📡 Enviando tu examen...';
+  const payload={name,date,class:cls,total,sec1:secScore['1']||0,sec2:secScore['2']||0,sec3:secScore['3']||0,sec4:secScore['4']||0,sec5:secScore['5']||0,answers:collectAnswers()};
+  fetch(APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(()=>{ statusEl.className='submit-status sent'; statusEl.textContent='🎉 ¡Examen enviado! Bien hecho, '+name+' 👏'; btn.textContent='✅ Enviado'; })
+    .catch(err=>{ btn.disabled=false; btn.textContent='✉️ Send my exam'; statusEl.className='submit-status error'; statusEl.textContent='❌ Error al enviar. Verifica tu conexión.'; console.error(err); });
+}
+</script>
+</body>
+</html>
